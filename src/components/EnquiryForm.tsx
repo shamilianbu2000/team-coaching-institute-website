@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -169,7 +170,7 @@ export function EnquiryForm({ endpoint = SITE.formspreeEndpoint, defaultClass }:
       </button>
 
       <p className="text-sm text-muted">
-        Your details are used only to respond to this enquiry. See our <a className="font-semibold text-navy underline" href="/privacy-policy">Privacy Policy</a>.
+        Your details are used only to respond to this enquiry. See our <Link className="font-semibold text-navy underline" href="/privacy-policy">Privacy Policy</Link>.
       </p>
 
       {!configured && (

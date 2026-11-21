@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { COURSES } from "@/content/courses";
 import { absoluteUrl } from "@/lib/links";
 
+export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["/", "/about", "/classes", "/faculty", "/results", "/testimonials", "/gallery", "/contact", "/privacy-policy"];
   // Fixed content date: update when site content changes (avoids reading the clock at build time).

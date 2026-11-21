@@ -27,6 +27,7 @@ npm run dev                  # http://localhost:3000
 | `npm run typecheck` · `npm run lint` | Types · ESLint |
 | `npm run test:unit` | Vitest unit tests |
 | `npm run test:e2e` | Playwright (builds must exist; uses port 3100) |
+| `npm run deploy:ghpages` | Static export → `gh-pages` branch (GitHub Pages) |
 
 ## Environment variables
 | Variable | Required | Purpose |
@@ -50,7 +51,7 @@ Edit `src/content/site.ts` (business details), `courses.ts` (courses), `general.
 [`docs/`](docs): CLIENT_RESEARCH · REQUIREMENTS · SITEMAP · UX_FLOWS · API_DOCUMENTATION · SEO_STRATEGY · TEST_REPORT · DEPLOYMENT · FORMSPREE_SETUP.
 
 ## Deployment
-Vercel recommended – see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+Demo: GitHub Pages (`npm run deploy:ghpages`). Production: Vercel recommended – see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
 ## Repository
 https://github.com/shamilianbu2000/team-coaching-institute-website

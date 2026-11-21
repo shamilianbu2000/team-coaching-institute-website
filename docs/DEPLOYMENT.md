@@ -1,5 +1,18 @@
 # Deployment
 
+Two supported routes. The current demo is on **GitHub Pages**; Vercel remains the recommended production host.
+
+## Option A – GitHub Pages (used for the demo)
+Static export of the site published to the `gh-pages` branch. Requires a **public** repository on a free GitHub account.
+
+```bash
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxx npm run deploy:ghpages
+```
+The script (`scripts/deploy-ghpages.sh`) builds with `STATIC_EXPORT=1`, `NEXT_PUBLIC_BASE_PATH=/<repo>` and `NEXT_PUBLIC_SITE_URL=https://<owner>.github.io/<repo>`, adds `.nojekyll` and force-pushes only the `gh-pages` branch. Then in GitHub: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`.
+Notes: the Formspree endpoint is baked in at build time, so re-run the script after setting it. A custom domain needs no base path – build with `NEXT_PUBLIC_BASE_PATH=` (empty) and `NEXT_PUBLIC_SITE_URL=https://your-domain`. The Open Graph image is served without a file extension on Pages, so some social crawlers may not preview it; Vercel serves it correctly.
+
+## Option B – Vercel (recommended for production)
+
 Recommended host: **Vercel** (free Hobby plan is sufficient for a static-first Next.js site).
 
 ## Steps
