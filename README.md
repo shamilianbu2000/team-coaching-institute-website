@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TEAM Coaching Institute – Website
 
-## Getting Started
+Professional, mobile-first website for **TEAM Coaching Institute, Jayankondam (Ariyalur district, Tamil Nadu)**. Goal: generate admission enquiries and improve local search visibility.
 
-First, run the development server:
+> **Status:** code complete and tested. The admission form needs a **Formspree endpoint** before it can send enquiries (see below). Content marked *Client confirmation required* awaits the institute.
 
+## Tech stack
+Next.js 16 (App Router, static generation) · TypeScript · Tailwind CSS 4 · Lucide icons · Framer Motion · React Hook Form + Zod · **Formspree** (form delivery) · Playwright + Vitest. **No backend, no database, no admin, no auth.**
+
+## Pages
+Home · About · Classes & Courses · 4 course pages · Faculty · Results & Achievements · Testimonials · Gallery · Contact & Admissions · Privacy Policy (+ sitemap.xml, robots.txt).
+
+## Local setup
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/shamilianbu2000/team-coaching-institute-website.git
+cd team-coaching-institute-website
+npm install
+cp .env.example .env.local   # then edit values
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Commands
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Dev server |
+| `npm run build` / `npm start` | Production build / serve |
+| `npm run typecheck` · `npm run lint` | Types · ESLint |
+| `npm run test:unit` | Vitest unit tests |
+| `npm run test:e2e` | Playwright (builds must exist; uses port 3100) |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
+| Variable | Required | Purpose |
+|----------|----------|---------|
+| `NEXT_PUBLIC_FORMSPREE_ENDPOINT` | **Yes** (for the form) | `https://formspree.io/f/xxxx` |
+| `NEXT_PUBLIC_SITE_URL` | Yes in production | Canonical URLs, sitemap, Open Graph |
+| `NEXT_PUBLIC_GA_ID` | No | GA4 measurement ID |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | No | Search Console token |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_PHONE_*`, `NEXT_PUBLIC_CONTACT_EMAIL` | No | Override contact details |
+| `NEXT_PUBLIC_INSTAGRAM_URL` / `YOUTUBE_URL` / `FACEBOOK_URL` | No | Social links (none found yet) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Never commit `.env.local`. `NEXT_PUBLIC_*` values are public by design.
 
-## Learn More
+## Formspree setup
+Short version: create form → set institute email → verify email → copy endpoint → put it in `.env.local` and in the host's env settings → redeploy → send a real test enquiry. Full guide: [`docs/FORMSPREE_SETUP.md`](docs/FORMSPREE_SETUP.md). Without an endpoint the form shows a notice and disables submit (it never fakes success).
 
-To learn more about Next.js, take a look at the following resources:
+## Updating content
+Edit `src/content/site.ts` (business details), `courses.ts` (courses), `general.ts` (faculty, achievements, testimonials, gallery, reasons). Empty faculty/achievements/testimonials arrays render clearly-marked placeholders; add real entries and they appear automatically. Put approved photos in `public/` and set `src` in `GALLERY_ITEMS`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentation
+[`docs/`](docs): CLIENT_RESEARCH · REQUIREMENTS · SITEMAP · UX_FLOWS · API_DOCUMENTATION · SEO_STRATEGY · TEST_REPORT · DEPLOYMENT · FORMSPREE_SETUP.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
+Vercel recommended – see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Repository
+https://github.com/shamilianbu2000/team-coaching-institute-website
