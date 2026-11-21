@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://shamilianbu2000.github.io/team-coaching-institute-website/sitemap.xml
