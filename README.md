@@ -53,5 +53,7 @@ Edit `src/content/site.ts` (business details), `courses.ts` (courses), `general.
 ## Deployment
 Demo: GitHub Pages (`npm run deploy:ghpages`). Production: Vercel recommended – see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
-## Repository
-https://github.com/shamilianbu2000/team-coaching-institute-website
+## Repository & demo
+- Repository: https://github.com/shamilianbu2000/team-coaching-institute-website (public – required for free GitHub Pages)
+- **Live demo (GitHub Pages):** https://shamilianbu2000.github.io/team-coaching-institute-website/
+- The demo's admission form is disabled until a Formspree endpoint is set and `npm run deploy:ghpages` is re-run.

@@ -24,9 +24,17 @@ Run date: 21 Nov 2026 · Next.js 16.4.6 · Node 26 · Playwright 1.65.1 (Chromiu
 - **No horizontal overflow** on all 13 routes at 360, 390, 768, 1024, 1280 and 1440 px (the 1024px run caught a real header overflow, fixed by moving the full menu to ≥1280px).
 - Touch targets ≥ 44 px for the menu button and bottom-bar links.
 
+## Live deployment check (GitHub Pages, 21 Nov 2026)
+URL: https://shamilianbu2000.github.io/team-coaching-institute-website/ (HTTPS provided by GitHub Pages)
+- All 13 routes, `sitemap.xml`, `robots.txt`, `icon.svg` and JS assets return 200.
+- Headless Chrome on the live URL at 360, 390, 768, 1280 and 1440 px: all 13 pages have an `h1`, no horizontal overflow, no broken images, and **no console or network errors**.
+- Mobile menu opens and navigates correctly under the `/team-coaching-institute-website` base path; bottom action bar links are correct; footer links respect the base path; map embed present.
+- Form on the live demo correctly shows "not connected" and keeps submit disabled (no Formspree endpoint yet).
+- Canonical URLs and sitemap entries use the live URL with trailing slashes.
+
 ## Not verified / limitations
 - **Real Formspree delivery is NOT tested**: no endpoint exists yet. Tests mock the network. A real test enquiry must be sent after configuration (`FORMSPREE_SETUP.md`).
-- Live deployment, HTTPS and production logs not verified (see `DEPLOYMENT.md` / README status).
+- Vercel deployment not performed (demo hosted on GitHub Pages instead; GitHub Pages has no server logs to inspect).
 - Not tested on physical phones or in Safari/Firefox; Chromium only.
 - Google Maps embed content (third-party) is not asserted beyond the iframe URL.
 - Colour contrast checked by design (navy/yellow/white pairs), not by an automated audit; run Lighthouse after deploy.
